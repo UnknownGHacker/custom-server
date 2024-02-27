@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proxy Hub</title>
+</head>
+<body>
+<header>
+    <h1>Proxy Hub</h1>
+    <form id="searchForm">
+        <input type="text" id="searchInput" placeholder="Enter URL to access">
+        <button type="submit">Go</button>
+    </form>
+</header>
+<main>
+    <!-- Main content of the hub page -->
+    <p>Welcome to the Proxy Hub. Use the search box above to enter the URL you want to access through the proxy.</p>
+</main>
+<footer>
+    <p>&copy; 2024 ProxyHub. All Rights Reserved.</p>
+</footer>
+
+<script>
+    // Handle form submission
+    document.getElementById("searchForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var url = document.getElementById("searchInput").value;
+        if (url.trim() !== "") {
+            // Redirect to proxy page with the URL as a parameter
+            window.location.href = "proxy.html?url=" + encodeURIComponent(url);
+        }
+    });
+</script>
+</body>
+</html>
