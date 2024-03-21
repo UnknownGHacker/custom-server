@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+</head>
+<body>
+    <iframe id = "searchframe" src='' title="search" width=500 height="500"></iframe>
+</body>
+<script>
+    const url = window.location.href;
+    const urlObject = new URL(url);
+    const urlString = urlObject.searchParams.get('url');
+    document.getElementById('searchframe').src = 'https://' + urlString
+</script>
+</html>

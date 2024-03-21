@@ -17,10 +17,8 @@
 <main>
     <!-- Main content of the hub page -->
     <p>Welcome to the Proxy Hub. Use the search box above to enter the URL you want to access through the proxy.</p>
+    <p>no css hub, just deal with it</p>
 </main>
-<footer>
-    <p>&copy; 2024 ProxyHub. All Rights Reserved.</p>
-</footer>
 
 <script>
     // Handle form submission
@@ -32,6 +30,12 @@
             window.location.href = "proxy.html?url=" + encodeURIComponent(url);
         }
     });
+    // Get the URL of the current page
+    const url = window.location.href;
+    const urlObject = new URL(url);
+    const urlString = urlObject.searchParams.get('url');
+
+    console.log(urlString);
 </script>
 </body>
 </html>

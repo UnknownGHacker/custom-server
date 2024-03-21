@@ -23,11 +23,10 @@ app.use(express.static('src'))
 function writepath(name) {
   app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, "src", name));
-});
-}
+});}
 
 app.listen(portloc, () =>
   console.log('app running at port: ', portloc,
 ));
 
-writepath('google.html')
+writepath('hub.html')
