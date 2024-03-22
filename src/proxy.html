@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search</title>
 </head>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    #searchframe {
+        width: 100vw;
+        height: 100vh;
+        border: none; /* Remove iframe border */
+    }
+</style>
 <body>
     <iframe id = "searchframe" src='' title="search" width=500 height="500"></iframe>
 </body>
@@ -12,6 +27,6 @@
     const url = window.location.href;
     const urlObject = new URL(url);
     const urlString = urlObject.searchParams.get('url');
-    document.getElementById('searchframe').src = 'https://' + urlString
+    document.getElementById('searchframe').src = urlString
 </script>
 </html>

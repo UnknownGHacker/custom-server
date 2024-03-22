@@ -4,20 +4,26 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proxy Hub</title>
+<title>ewanproxy</title>
+<link rel="stylesheet" href="hubstyles.css">
 </head>
 <body>
 <header>
-    <h1>Proxy Hub</h1>
+    <h1>ewanproxy</h1>
     <form id="searchForm">
         <input type="text" id="searchInput" placeholder="Enter URL to access">
+        <button type="submit">Go</button>
+    </form>
+    <form id="googleForm">
+        <input type="text" id="googleInput" placeholder="search google">
         <button type="submit">Go</button>
     </form>
 </header>
 <main>
     <!-- Main content of the hub page -->
-    <p>Welcome to the Proxy Hub. Use the search box above to enter the URL you want to access through the proxy.</p>
-    <p>no css hub, just deal with it</p>
+    <p>Welcome to the Proxy Hub. Use the search box above to enter the URL you want to access through the proxy. It has to be a full url, but without the "https://"</p>
+    <p>ex. "example.com" instead of "https://example.com"</p>
+    <p>this hub has only a little bit of css, it's in development</p>
 </main>
 
 <script>
@@ -26,16 +32,26 @@
         event.preventDefault(); // Prevent default form submission
         var url = document.getElementById("searchInput").value;
         if (url.trim() !== "") {
-            // Redirect to proxy page with the URL as a parameter
-            window.location.href = "proxy.html?url=" + encodeURIComponent(url);
+            window.location.href = "proxy.html?url=https://" + encodeURIComponent(url);
         }
     });
-    // Get the URL of the current page
-    const url = window.location.href;
-    const urlObject = new URL(url);
-    const urlString = urlObject.searchParams.get('url');
 
-    console.log(urlString);
+    document.getElementById("googleForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var url = document.getElementById("googleInput").value;
+        if (url.trim() !== "") {
+            window.location.href = "proxy.html?url=https://www.google.com/search?q=" + encodeURIComponent(url);
+        }
+    });
 </script>
+
+<button id="redirectButton">info</button>
+
+<script>
+    document.getElementById("redirectButton").addEventListener("click", function() {
+        window.location.href = "info.html"; // Replace "page2.html" with the URL of the HTML file you want to redirect to
+    });
+</script>
+
 </body>
 </html>
